@@ -52,13 +52,10 @@ With the power stage sorted top to bottom, the AFE pins on the top side would ha
 **5. A schematic bug caught during layout**
 While mapping AFE pins to filter blocks, I noticed that the block numbering on the AFE side was reversed relative to the power side. As drawn, the highest cell-sense pin would have been tied to the lowest cell, putting the supply-to-sense voltage far beyond the IC's limit and destroying it. The fix was to swap the port names between mirrored blocks in the filter sheet (1↔7, 2↔6, 3↔5). The copper on the power side did not change.
 
-**6. Kelvin sensing**
-The balancing current path and the cell-sense path split at the connector pad. The sense line runs as its own thin trace to the filter, so balancing current does not show up as a voltage error on the measurement.
-
-**7. Thermal and functional zoning**
+**6. Thermal and functional zoning**
 The 28 balancing resistors (up to ~24 W in total if every cell balances at once) sit on the left, away from the AFE. The board is split into three zones: high-voltage power stage, filter chains, and the low-voltage AFE / communication area.
 
-**8. Isolation and high-voltage clearance**
+**7. Isolation and high-voltage clearance**
 - Copper is removed under the communication transformer and its connectors on both internal planes, so the isolation barrier is not bridged.
 - Each mounting hole has an 8 × 8 mm copper-free area on the planes. In a series pack, the board's ground can sit hundreds of volts away from chassis.
 - A temporary design rule checked 0.6 mm clearance (IPC-2221, B2, external uncoated conductors, 31–100 V) between the stack negative and the rest of the high-voltage area. No violations.
@@ -75,6 +72,7 @@ The [foxBMS](https://foxbms.org) 14S slave design (MC33775A) was used as a layou
 
 ## Ideas for Rev B
 
+- Kelvin sense routing: split the sense trace from the balancing trace directly at the connector pad. In this revision the sense line branches off the balancing path further along, so balancing current adds a small voltage drop (on the order of 10 mV) to the measurement. The usual firmware workaround is to pause balancing during cell measurements.
 - Make the board smaller. The two-sided layout leaves room to compact it.
 - Add same-net copper islands and thermal vias under each balancing resistor.
 - Convert the 7 identical cell blocks to an Altium multi-channel design so placement can be copied between channels.
