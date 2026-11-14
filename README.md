@@ -14,6 +14,12 @@ Designed in Altium Designer: schematic, custom footprints, placement, routing an
 
 > **Why does the top look empty on the right?** The board is populated on both sides. The AFE, its input capacitor ladder, the isolated communication section and the NTC filters all sit on the **bottom**, right under that area. The reason is explained under *Design decisions*.
 
+### 2D layout, all layers
+
+![2D layout with all copper layers](images/pcb-2d-layout.png)
+
+Red is top copper, blue is bottom copper, and the other colours are the inner signal layers. The balancing power rows run from the cell connector J3 on the left, the filter chains fan into the AFE in the middle, and the isolated daisy-chain section with transformer T1 sits on the right.
+
 ## Key specs
 
 | | |
@@ -83,7 +89,7 @@ The [foxBMS](https://foxbms.org) 14S slave design (MC33775A) was used as a layou
 
 ```
 hardware/   Altium project (.PrjPcb), schematics, PCB, schematic and footprint libraries
-images/     3D renders
+images/     3D renders and 2D layout
 schematic.pdf   Schematic export (both sheets)
 fabrication/    Gerber (RS-274X) and NC drill files
 ```
