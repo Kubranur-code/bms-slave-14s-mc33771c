@@ -4,6 +4,8 @@ A 6-layer battery management slave board for a 14-cell (14S) Li-ion stack, built
 
 Designed in Altium Designer: schematic, custom footprints, placement, routing and design checks.
 
+📄 **[Schematic (PDF)](schematic.pdf)**: no Altium needed. Two sheets: the AFE and communication sheet, and the 7 cell filter and balancing blocks. Text is searchable and nets are bookmarked.
+
 ![Angled 3D view](images/pcb-3d-angled.png)
 
 | Top side | Bottom side |
@@ -82,6 +84,7 @@ The [foxBMS](https://foxbms.org) 14S slave design (MC33775A) was used as a layou
 ```
 hardware/   Altium project (.PrjPcb), schematics, PCB, schematic and footprint libraries
 images/     3D renders
+schematic.pdf   Schematic export (both sheets)
 ```
 
 Open `hardware/bms-slave-mc33771c-design.PrjPcb` in Altium Designer.
