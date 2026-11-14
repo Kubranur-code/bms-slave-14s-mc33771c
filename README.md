@@ -85,6 +85,26 @@ The [foxBMS](https://foxbms.org) 14S slave design (MC33775A) was used as a layou
 hardware/   Altium project (.PrjPcb), schematics, PCB, schematic and footprint libraries
 images/     3D renders
 schematic.pdf   Schematic export (both sheets)
+fabrication/    Gerber (RS-274X) and NC drill files
 ```
+
+### Fabrication files
+
+Gerber RS-274X, metric, 4:4 format, relative origin. NC drill (Excellon) uses the same format, with plated and non-plated holes in separate files.
+
+| File | Layer |
+|---|---|
+| `PCB1.GTO` / `PCB1.GTP` / `PCB1.GTS` | Top silkscreen / paste / solder mask |
+| `PCB1.GTL` | L1 Top copper |
+| `PCB1.GP1` | L2 BAT_NEG plane (negative) |
+| `PCB1.G1` | L3 Signal |
+| `PCB1.G2` | L4 Signal |
+| `PCB1.GP2` | L5 BAT_NEG plane (negative) |
+| `PCB1.GBL` | L6 Bottom copper |
+| `PCB1.GBS` / `PCB1.GBP` / `PCB1.GBO` | Bottom solder mask / paste / silkscreen |
+| `PCB1.GM1` | Board outline |
+| `PCB1-Plated.TXT` | Plated holes: 130 × 0.3 mm vias, 22 × 1.016 mm connector pins |
+| `PCB1-NonPlated.TXT` | Non-plated holes: 5 × 3.0 mm connector pegs, 4 × 3.2 mm M3 mounting holes |
+| `PCB1.DRR` | Drill report |
 
 Open `hardware/bms-slave-mc33771c-design.PrjPcb` in Altium Designer.
