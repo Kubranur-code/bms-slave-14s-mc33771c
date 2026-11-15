@@ -114,3 +114,11 @@ Gerber RS-274X, metric, 4:4 format, relative origin. NC drill (Excellon) uses th
 | `PCB1.DRR` | Drill report |
 
 Open `hardware/bms-slave-mc33771c-design.PrjPcb` in Altium Designer.
+
+## License
+
+Copyright 2026 Kubranur-code.
+
+This hardware design (schematics, PCB layout, libraries and fabrication files) is licensed under the [CERN Open Hardware Licence Version 2 - Permissive](LICENSE) (CERN-OHL-P-2.0).
+
+Third-party component symbols, footprints, 3D models and datasheets remain subject to their original licenses.
