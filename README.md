@@ -57,13 +57,10 @@ The connector pinout was rearranged so that pin order follows the cell order. Ad
 **4. AFE on the bottom side, which fixes the cell order**
 With the power stage sorted top to bottom, the AFE pins on the top side would have met the cell lines in reverse order, and every sense and balancing line would have crossed. Placing the AFE on the bottom mirrors its pinout, so the filter bundles reach the IC in order with no crossings.
 
-**5. A schematic bug caught during layout**
-While mapping AFE pins to filter blocks, I noticed that the block numbering on the AFE side was reversed relative to the power side. As drawn, the highest cell-sense pin would have been tied to the lowest cell, putting the supply-to-sense voltage far beyond the IC's limit and destroying it. The fix was to swap the port names between mirrored blocks in the filter sheet (1↔7, 2↔6, 3↔5). The copper on the power side did not change.
-
-**6. Thermal and functional zoning**
+**5. Thermal and functional zoning**
 The 28 balancing resistors (up to ~24 W in total if every cell balances at once) sit on the left, away from the AFE. The board is split into three zones: high-voltage power stage, filter chains, and the low-voltage AFE / communication area.
 
-**7. Isolation and high-voltage clearance**
+**6. Isolation and high-voltage clearance**
 - Copper is removed under the communication transformer and its connectors on both internal planes, so the isolation barrier is not bridged.
 - Each mounting hole has an 8 × 8 mm copper-free area on the planes. In a series pack, the board's ground can sit hundreds of volts away from chassis.
 - A temporary design rule checked 0.6 mm clearance (IPC-2221, B2, external uncoated conductors, 31–100 V) between the stack negative and the rest of the high-voltage area. No violations.
