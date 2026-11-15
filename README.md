@@ -117,7 +117,7 @@ Open `hardware/bms-slave-mc33771c-design.PrjPcb` in Altium Designer.
 
 ## License
 
-Copyright 2026 Kubranur-code.
+Copyright 2026 Kübranur Cici.
 
 This hardware design (schematics, PCB layout, libraries and fabrication files) is licensed under the [CERN Open Hardware Licence Version 2 - Permissive](LICENSE) (CERN-OHL-P-2.0).
 
